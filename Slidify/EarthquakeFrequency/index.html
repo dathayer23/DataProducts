@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analysis of Yearly Earthquake Data 1900 - 2015</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Analysis of Yearly Earthquake Data 1900 - 2015">
+  <meta name="author" content="David Thayer">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Analysis of Yearly Earthquake Data 1900 - 2015</h1>
+    <h2>number of earthquakes and sum of relative magnitudes per year</h2>
+    <p>David Thayer<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h3>Are Earth Quakes increasing in frequency?</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>It seems that everyday now we are hearng about a new earthquake or sometimes multiple earthquakes.<br>
+While it is true that increasingly sensitive seismograph technology has increased the number of quakes 
+detected this increased number of quakes are pimarily in the low magnitude range below 2.5. This is too 
+small to be felt by the average person. This also means that by limiting ourselves to major earth quakes 
+which have been easily detectable since  the early 1900&#39;s that we could analyze yearly data and look for 
+patterns. This data would not be affected by increasingly sensitive detectors.  We have provided a Web App that 
+allows web users to examine bar charts of this data selecting the magnitude below which the analysis would be cutoff 
+and the year up to which the analysis would be run.  There are two primary measures calculated for the selected data. 
+1. A count of the total number of earth quakes for the year.
+2. The sum of the relative energy based on the cutoff magnitude of each earthquake.  </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h3>Gathering Data</h3>
+  </hgroup>
+  <article data-timings="">
+    <p>The USGS web page provides a collection of data known as the Centennial collection that contains data between 1900 to 2007. THis can be downloaded from the usgs Web Site at <a link="http://earthquake.usgs.gov/data/centennial/centennial_Y2K.CAT"> USGS Centennial Catalog </a>. Unfortunately it stops at the year 2007.  Therefore we generated a query at the  <a link="http://earthquake.usgs.gov/earthquakes/search/">USGS ANSS Comprehensive Catalog </a>.  A simple query was made there for all data past the endpoint of the centennial catalog of magnitude greater than 6.0.  This was easily merged with the data from the centennial catalog to create a complete set of data ranging from 1900 to March 20, 2015.</p>
+
+<p>The Relative Magnitude of energy calculatioon was calculated using the following formula.</p>
+
+<p>\(10^(1.5*(base - mag))\)</p>
+
+<p>This is based on the fact the the magnitude scales up by \(10^1.5\) for each integral increase in magnitude.  Therefore the relative energy of say a 7.5 earthquake to that of a 5.0 earthquake should be \(10^10*2.5\) since the difference between 5.0 and 7.5 is 2.5 units.  Since this is a relative energy level it is unitless and is only good for comparisons.  By summing this value for all earthquakes in a year we can get an idea of how much energy was released by earthquakes in that year relative to any other year.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h4>Number of EarthQuakes Greater than 7.0 1900 - 2015</h4>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+<p>In this plot it seems clear that there has been an increase in the number of earthquakes over the last 10 years starting around 2004.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="slide-4" style="background:;">
+  <hgroup>
+    <h4>Sum of Rel Mag Earth Quakes above 7.0 1900-2015</h4>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+<p>While the great alaska earth quake of 1964 is predominent it seems clear that there has been an increase in the last ten years of energy released by eartquakes.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Are Earth Quakes increasing in frequency?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Gathering Data'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Number of EarthQuakes Greater than 7.0 1900 - 2015'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Sum of Rel Mag Earth Quakes above 7.0 1900-2015'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
